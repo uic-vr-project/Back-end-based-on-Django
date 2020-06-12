@@ -5,7 +5,7 @@ import sys
 
 
 def main():
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mysite_for_gallary.settings')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'new_mysite_for_gallery.settings')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
