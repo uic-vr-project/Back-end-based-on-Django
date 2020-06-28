@@ -1,0 +1,93 @@
+<html>
+  <head>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <title>My Works</title>
+
+  </head>
+  <body class="text-center">
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+      <h5 class="my-0 mr-md-auto font-weight-normal">My Works</h5>
+      <nav class="my-2 my-md-0 mr-md-3">
+        <a class="p-2 text-dark" href="/myProfile">My Profile</a>
+        
+        <a class="p-2 text-dark" href="/logout">Log out</a>
+      </nav>
+    </div>
+      <section class="jumbotron text-center mx-auto">
+        <h1>My Works
+        <div class="card mb-4 box-shadow">
+        <div class="card-body">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Work ID</th>
+                  <th scope="col">Student Name</th>
+                <th scope="col">Work</th>
+                <th scope="col">Instructor</th>
+                <th scope="col">Series</th>
+                <th scope="col">Description</th>
+                <th scope="col">Type</th>
+                <th scope="col">Size</th>   
+                <th scope="col">Delete</th>
+                <th scope="col">Modify</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for item in OilPaint_info %}
+             <tr>{% csrf_token %}
+                <td id="ID">{{item.id}}</td>
+                <td id="author">{{ item.author }}</td>
+                <td id="name">{{ item.name }}</td>
+                <td id="teache">{{ item.teacher }}</td>
+                <td id="series">{{ item.series }}</td>
+                 <td id="description">{{ item.description }}</td>
+                 <td id="description">{{ item.type }}</td>
+                 <td id="size">{{ item.size }}</td>
+                 <td id="button"><a href="/deleteConfirm-{{item.name}}-{{item.id}}-{{item.type}}" class="btn btn btn-danger btn-sm my-2">Delete</a></td>
+                 <td id="button"><a href="/modifyConfirm-{{item.id}}-{{item.type}}" class="btn btn btn-outline-info btn-sm my-2">Modify</a></td>
+              </tr>
+            {% endfor %}  
+            {% for item in model_info %}
+             <tr>{% csrf_token %}
+                <td id="ID">{{item.id}}</td>
+                <td id="author">{{ item.author }}</td>
+                <td id="name">{{ item.name }}</td>
+                <td id="teache">{{ item.teacher }}</td>
+                <td id="series">{{ item.series }}</td>
+                 <td id="description">{{ item.description }}</td>
+                 <td id="description">{{ item.type }}</td>
+                 <td id="size">{{ item.size }}</td>
+                 <td id="button"><a href="/deleteConfirm-{{item.name}}-{{item.id}}-{{item.type}}" class="btn btn btn-danger btn-sm my-2">Delete</a></td>
+                 <td id="button"><a href="/modifyConfirm-{{item.id}}-{{item.type}}" class="btn btn btn-outline-info btn-sm my-2">Modify</a></td>
+              </tr>
+            {% endfor %}  
+            {% for item in video_info %}
+             <tr>{% csrf_token %}
+                <td id="ID">{{item.id}}</td>
+                <td id="author">{{ item.author }}</td>
+                <td id="name">{{ item.name }}</td>
+                <td id="teache">{{ item.teacher }}</td>
+                <td id="series">{{ item.series }}</td>
+                 <td id="description">{{ item.description }}</td>
+                 <td id="description">{{ item.type }}</td>
+                 <td id="size">{{ item.size }}</td>
+                 <td id="button"><a href="/deleteConfirm-{{item.name}}-{{item.id}}-{{item.type}}" class="btn btn btn-danger btn-sm my-2">Delete</a></td>
+                 <td id="button"><a href="/modifyConfirm-{{item.id}}-{{item.type}}" class="btn btn btn-outline-info btn-sm my-2">Modify</a></td>
+              </tr>
+            {% endfor %}  
+            </tbody>
+          </table>
+          <a class="btn btn-primary my-2 btn-lg" href="/typeConfirm">New Work Upload</a>
+      </div>
+    </div>
+      </section>
+  <script>
+  </script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+  </body>
+</html>

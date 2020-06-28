@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Chagne your password
+	</title>
+	<link href="https://cdn.bootcss.com/bootstrap/4.1.0/css/bootstrap.css" rel="stylesheet">
+	<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<div class="row" style="margin-top: 2rem">
+			
+			<div class="card mx-auto" style="width: 40rem;height: 35rem;margin-top: 3rem">
+				<center><h3 class="card-text" style="margin-top: 5rem">
+					Chagne your password
+   						</h3>
+   			    </center>
+				<form class="form-horizontal" method="POST" action="/changePwd/">
+                    {% csrf_token %}   <!--防止django跨站请求保护造成403错误 -->
+   			    <div id="sign-in info" style="margin-top: 2rem">
+   			    	<div class="form-group">
+								<label for="userid" class="col-sm-4 control-label">Original Password</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" id="oldPwd" name="oldPwd" placeholder="Original">
+  						</div>
+  						<div class="form-group">
+								<label for="password" class="col-sm-4 control-label">New Password</label>
+								<div class="col-sm-10">
+									<input type="password" class="form-control" id="password" name="newPwd" placeholder="New Password" required>
+  						</div>
+  				<center>
+  					<br/>
+  					<p><button type="submit" class="btn btn-primary mx-auto" style="width: 10rem">Done</button></p><br/>
+					  
+					</br></br>
+						
+  				</center>
+   			    </div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

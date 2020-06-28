@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Sign in
+	</title>
+	<link href="https://cdn.bootcss.com/bootstrap/4.1.0/css/bootstrap.css" rel="stylesheet">
+	<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<div class="row" style="margin-top: 2rem">
+			<div class="card mx-auto" style="width: 40rem;height: 35rem;margin-top: 3rem">
+				<center><h3 class="card-text" style="margin-top: 5rem">
+   							Sign in please
+   						</h3>
+   			    </center>
+				<form class="form-horizontal" method="POST" action="/login/">
+                    {% csrf_token %}   <!--防止django跨站请求保护造成403错误 -->
+   			    <div id="sign-in info" style="margin-top: 2rem">
+   			    	<div class="form-group">
+								<label for="userid" class="col-sm-2 control-label">User ID:</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" id="username" name="username" placeholder="Username">
+  						</div>
+  						<div class="form-group">
+								<label for="password" class="col-sm-2 control-label">Password</label>
+								<div class="col-sm-10">
+									<input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+  						</div>
+  				<center>
+  					<label>
+         				 <input type="checkbox" value="remember-me"> Remember me
+       				 </label><br/>
+  					<p><button type="submit" class="btn btn-primary mx-auto" style="width: 10rem">Log in</button></p><br/>
+					  <p><a href="/signup"> Creat New Account</a></p>
+					</br></br>
+						<div class="row">
+							
+
+						</div>
+  				</center>
+   			    </div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

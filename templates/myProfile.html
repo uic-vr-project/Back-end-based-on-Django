@@ -1,0 +1,66 @@
+<html>
+  <head>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <title>My Profile</title>
+
+  </head>
+  <body class="text-center">
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+      <h5 class="my-0 mr-md-auto font-weight-normal">My profile</h5>
+      <nav class="my-2 my-md-0 mr-md-3">
+        <a class="p-2 text-dark" href="/logout">Log out</a>
+      </nav>
+    </div>
+
+      <section class="jumbotron text-center mx-auto">
+        <div class="card mb-4 box-shadow mx-auto" style="width: 35rem;height: 35rem;">
+          <div class="container mx-auto">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="card-body mx-auto" style="margin-top: 3rem">
+          
+				  <h2 class="my-0 font-weight-bold text-left" name="$test.id" style="font-size: 3rem;">Hi {{ user_name }}</h2>
+          <div class="text-left" style="margin-top: 3rem;font-size: 1.5rem">
+            
+                  <p class="my-0 font-weight-normal" >
+                    <b>Oil Paint:</b>
+                 
+                      <p class="my-0 font-weight-normal" >{{ paint_num }}</p>
+                  
+                    <b>
+                      Video:
+                      <p class="my-0 font-weight-normal" >{{ video_num }}</p>
+                    </b>
+                    <b>
+                      3D Model:
+                      <p class="my-0 font-weight-normal" >{{ model_num }}</p>
+                    </b>
+                    <b>
+                      Total: 
+                      <p class="my-0 font-weight-normal" >{{ total_num }}</p>
+                    </b>
+                
+                  </p>
+                  </div>
+            </div>
+                </div>
+                    <div class="col-md-6 font-weight-light text-lg-left" style="margin-top: 5rem">
+                    <a class="btn btn-primary my-2 btn-lg" href="/myWorks" style="margin-bottom: 5rem">View My Show</a>
+                    <a class="btn btn-primary my-2 btn-lg" href="/changePwd" style="margin-bottom: 5rem">Change Password</a>
+                  </div>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+  </body>
+</html>
