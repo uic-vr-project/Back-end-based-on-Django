@@ -1,8 +1,5 @@
 from django.db import models
-
 # Create your models here.
-from Gallery_app import admin
-
 
 class CCWorks(models.Model):
     name = models.CharField(max_length=20)
@@ -35,7 +32,4 @@ class Poster(models.Model):
 class DSTposter(Poster):
     pass
 
-class Admin(models.Model):
-    username = models.CharField(max_length=20)
-    password = models.CharField(max_length=128)
-    phonenum = models.CharField(max_length=11)
+
