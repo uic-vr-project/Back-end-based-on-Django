@@ -6,7 +6,6 @@ import pymysql
 from django.shortcuts import HttpResponse
 from Gallery_app.models import threeDmodel, Video, OilPaint
 from django.contrib.auth.models import User, auth
-from django.contrib.auth import authenticate, login, logout
 db = pymysql.connect(host="127.0.0.1", user="root", password='', db="project_display")
 
 
@@ -14,6 +13,7 @@ db = pymysql.connect(host="127.0.0.1", user="root", password='', db="project_dis
 def index(request):
     if request.method == "GET":
         return HttpResponse('这是首页')
+
 
 
 def dashboard(request):
@@ -28,16 +28,98 @@ def dashboard(request):
             model_num = 0
             for item in paint:
                 paint_num += 1
-
             for item in video:
                 video_num += 1
-
             for item in model:
                 model_num += 1
-
             total_num = paint_num + video_num + model_num
         else:
             return redirect('login time out, pls login')
+    else:
+        if request.user.is_authenticated:
+            admin_name = request.user.username
+            select = request.POST.get('select')
+            # print(type(select))
+            critical = request.POST.get('critical')
+            # print(critical)
+            if select == 'Author': 
+                paint = OilPaint.objects.filter(author=critical)
+                model = threeDmodel.objects.filter(author=critical)
+                video = Video.objects.filter(author=critical)
+                paint_num = 0
+                video_num = 0
+                model_num = 0
+                for item in paint:
+                    paint_num += 1
+                for item in video:
+                    video_num += 1
+                for item in model:
+                    model_num += 1
+                total_num = paint_num + video_num + model_num
+                return render(request, 'dashboard.html',
+                              {'select': select, 'critical': critical, 'total_num': total_num, 'paint_num': paint_num,
+                               'video_num': video_num, 'model_num': model_num,
+                               'admin_name': admin_name, 'OilPaint_info': paint,
+                               'model_info': model, 'video_info': video})
+            elif select == 'Name':
+                paint = OilPaint.objects.filter(name=critical)
+                model = threeDmodel.objects.filter(name=critical)
+                video = Video.objects.filter(name=critical)
+                paint_num = 0
+                video_num = 0
+                model_num = 0
+                for item in paint:
+                    paint_num += 1
+                for item in video:
+                    video_num += 1
+                for item in model:
+                    model_num += 1
+                total_num = paint_num + video_num + model_num
+                return render(request, 'dashboard.html',
+                              {'select': select, 'critical': critical, 'total_num': total_num, 'paint_num': paint_num,
+                               'video_num': video_num, 'model_num': model_num,
+                               'admin_name': admin_name, 'OilPaint_info': paint,
+                               'model_info': model, 'video_info': video})
+            elif select == 'Instructor':
+                paint = OilPaint.objects.filter(teacher=critical)
+                model = threeDmodel.objects.filter(teacher=critical)
+                video = Video.objects.filter(teacher=critical)
+                paint_num = 0
+                video_num = 0
+                model_num = 0
+                for item in paint:
+                    paint_num += 1
+                for item in video:
+                    video_num += 1
+                for item in model:
+                    model_num += 1
+                total_num = paint_num + video_num + model_num
+                return render(request, 'dashboard.html',
+                              {'select': select, 'critical': critical, 'total_num': total_num, 'paint_num': paint_num,
+                               'video_num': video_num, 'model_num': model_num,
+                               'admin_name': admin_name, 'OilPaint_info': paint,
+                               'model_info': model, 'video_info': video})
+            elif select == 'Series':
+                paint = OilPaint.objects.filter(series=critical)
+                model = threeDmodel.objects.filter(series=critical)
+                video = Video.objects.filter(series=critical)
+                paint_num = 0
+                video_num = 0
+                model_num = 0
+                for item in paint:
+                    paint_num += 1
+                for item in video:
+                    video_num += 1
+                for item in model:
+                    model_num += 1
+                total_num = paint_num + video_num + model_num
+                return render(request, 'dashboard.html',
+                              {'select': select, 'critical': critical, 'total_num': total_num, 'paint_num': paint_num,
+                               'video_num': video_num, 'model_num': model_num,
+                               'admin_name': admin_name, 'OilPaint_info': paint,
+                               'model_info': model, 'video_info': video})
+        else:
+            return HttpResponse("Login time out")
     return render(request, 'dashboard.html', {'total_num': total_num, 'paint_num':paint_num,
                                               'video_num': video_num,'model_num': model_num,
                                               'admin_name': admin_name, 'OilPaint_info': paint,

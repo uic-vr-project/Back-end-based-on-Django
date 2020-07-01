@@ -33,6 +33,5 @@ urlpatterns = [
     url(r'deleteConfirm-(.+)-(.+)-(.+)/$', views.deleteConfirm),
     url(r'delete-(.+)-(.+)-(.+)/$', views.delete),
     url(r'modifyConfirm-(.+)-(.+)/$', views.modifyConfirm),
-    url(r'typeConfirm/', views.typeConfirm),
-    url(r'signupAdmin/', views.signupAdmin)
+    url(r'typeConfirm/', views.typeConfirm)
 ]
